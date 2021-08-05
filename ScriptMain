@@ -1,9 +1,9 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImNotDoris/Nay-X-Hub/main/MainHubScript"))()
 
 local Gui = Library:AddGui({
-	Title = {"IreXion", "UI Library"},
-	ThemeColor = Color3.fromRGB(0, 255, 0),
-	ToggleKey = Enum.KeyCode.RightShift,
+	Title = {"Dor-X Hub", "Game"},
+	ThemeColor = Color3.fromRGB(0, 255, 238),
+	ToggleKey = Enum.KeyCode.Insert,
 })
 
 local Tab = Gui:AddTab("Test Tab")
@@ -45,10 +45,9 @@ local Dropdown = Category:AddDropdown("Dropdown", {
 	print(name)
 end)
 
-local Bind = Category:AddBind("Bind", Gui.ToggleKey, function()
-	print("Toggled GUI")
-end)
-
 Library:Notify("Thank you for checking out IreXion UI Library.", function(bool)
 	print("User clicked", bool and "yes" or "no")
 end)
+
+local TabToogle = Gui:AddTab("ToogleGui")
+local Gui = TabToogle:AddCategory("Press Insert On Your Keyboard To Hide Or Open Gui")
