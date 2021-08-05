@@ -1,9 +1,9 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImNotDoris/Nay-X-Hub/main/MainHubScript"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/UI-Libraries/main/BoomSXer/BoomSXer%20UI%20Library"))()
 
 local Gui = Library:AddGui({
-	Title = {"Dor-X Hub", "Game"},
-	ThemeColor = Color3.fromRGB(0, 255, 238),
-	ToggleKey = Enum.KeyCode.Insert,
+	Title = {"BoomSXer", "UI Library"},
+	ThemeColor = Color3.fromRGB(0, 125, 255),
+	ToggleKey = Enum.KeyCode.RightShift,
 })
 
 local Tab = Gui:AddTab("Test Tab")
@@ -11,23 +11,37 @@ local Tab = Gui:AddTab("Test Tab")
 local Category = Tab:AddCategory("Category")
 
 local Button = Category:AddButton("Button", function()
-	print("Button Pressed")
+	Library:Notify("You pressed Button, are you proud?", function(yesno)
+		print("User selected :", yesno)
+	end)
 end)
 
 local Toggle = Category:AddToggle("Toggle", false, function(toggle)
-	print(toggle)
+	(toggle and print or warn)(toggle)
 end)
 
-local Box = Category:AddBox("Box", function(str)
-	print(str)
+local Box = Category:AddBox("Box", true, function(text)
+	print(text)
 end)
 
 local Label = Category:AddLabel("Label")
 
 local DualLabel = Category:AddDualLabel({"Label1", "Label2"})
 
-local Slider = Category:AddSlider("Slider", 1, 100, 50, function(val)
-	print("Slider Value:", val)
+local Slider = Category:AddSlider("Slider", 1, 100, 50, false, function(val)
+	print("Slider :", val)
+end)
+
+local ToggleSlider = Category:AddToggleSlider("ToggleSlider", 1, 100, 50, false, false, function(val)
+	print("ToggleSlider :", val)
+end)
+
+local Bind = Category:AddBind("Bind", Enum.KeyCode.RightShift, function()
+	print("Bind Pressed, Gui Toggled")
+end)
+
+local ToggleBind = Category:AddToggleBind("ToggleBind", Enum.KeyCode.LeftShift, false, function()
+	print("ToggleBind Pressed")
 end)
 
 local Dropdown = Category:AddDropdown("Dropdown", {
@@ -41,13 +55,6 @@ local Dropdown = Category:AddDropdown("Dropdown", {
 	"Item 8",
 	"Item 9",
 	"Item 10",
-}, function(name)
-	print(name)
+}, function(selected)
+	print(selected)
 end)
-
-Library:Notify("Thank you for checking out IreXion UI Library.", function(bool)
-	print("User clicked", bool and "yes" or "no")
-end)
-
-local TabToogle = Gui:AddTab("ToogleGui")
-local Gui = TabToogle:AddCategory("Press Insert On Your Keyboard To Hide Or Open Gui")
