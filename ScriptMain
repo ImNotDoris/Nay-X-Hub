@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/UI-Libraries/main/BoomSXer/BoomSXer%20UI%20Library"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImNotDoris/Nay-X-Hub/main/MainHubScript"))()
 
 local Gui = Library:AddGui({
 	Title = {"BoomSXer", "UI Library"},
